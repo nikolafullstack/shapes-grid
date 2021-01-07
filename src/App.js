@@ -5,7 +5,7 @@ import {
 } from './selectors/Selector'
 import { shape } from './actions'
 import Header from './components/Header'
-import ShapesPanel from './components/ShapesPanel'
+import ShapeList from './components/ShapeList'
 import Filters from './components/Filters'
 
 const App = () => {
@@ -16,14 +16,16 @@ const App = () => {
     dispatch(shape.request())
   }, [dispatch])
 
-  return fetching
-    ? <div>loading..</div>
-    : (
-      <>
-        <Header />
-        <Filters />
-        <ShapesPanel />
-      </>
+  if (fetching) {
+    return <div>loading..</div>
+  }
+
+  return (
+    <>
+      <Header />
+      <Filters />
+      <ShapeList />
+    </>
   )
 }
 

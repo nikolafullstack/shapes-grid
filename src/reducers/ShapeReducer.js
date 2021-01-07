@@ -12,7 +12,6 @@ const initialState = {
 }
 
 export default function ShapeReducer(state = initialState, action) {
-  let title = ''
   let clonedFilters = []
 
   switch (action.type) {

@@ -6,7 +6,7 @@ import {
   titleSelector,
 } from '../../selectors/Selector'
 
-const ShapesPanel = () => {
+const ShapeList = () => {
   const shapes = useSelector(shapesSelector)
   const title = useSelector(titleSelector)
 
@@ -24,4 +24,4 @@ const ShapesPanel = () => {
   )
 }
 
-export default ShapesPanel
+export default ShapeList
