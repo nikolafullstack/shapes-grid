@@ -29,7 +29,7 @@ const Filters = () => {
   return (
     <div className='container-fluid'>
       <div className='row my-5'>
-        <div className='col-6 d-flex'>
+        <div className='col-lg-6 col-12 d-flex'>
           {shapeFiltersList.map((sType, index) => (
             <div
               className={classNames('shape-filter text-uppercase font-italic font-weight-bold mr-4', {
@@ -43,7 +43,7 @@ const Filters = () => {
             </div>
           ))}
         </div>
-        <div className='col-6 d-flex justify-content-end'>
+        <div className='col-lg-6 col-12 d-flex justify-content-end'>
           {colorFiltersList.map((cType, index) => (
             <div
               className={classNames('color-filter ml-3', {
