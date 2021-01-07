@@ -1,9 +1,7 @@
-import { combineReducers } from 'redux-immutable'
-import Reducer from './Reducer'
+import { combineReducers } from 'redux';
 
-const rootReducer = asyncReducers => combineReducers({
-  data: Reducer,
-  ...asyncReducers,
-})
+const rootReducer = combineReducers({
+  state: (state = {}) => state
+});
 
-export default rootReducer
+export default rootReducer;
