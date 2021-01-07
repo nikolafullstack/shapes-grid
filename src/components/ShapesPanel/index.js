@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import ShapeCard from '../ShapeCard/index'
+import ShapeCard from '../ShapeCard'
 import {
   shapesSelector,
   titleSelector,

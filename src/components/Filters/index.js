@@ -7,7 +7,7 @@ import {
   selectedShapeFiltersSelector,
   selectedColorFiltersSelector,
 } from '../../selectors/Selector'
-import { item } from '../../actions'
+import { shape } from '../../actions'
 
 import './styles.scss'
 
@@ -19,11 +19,11 @@ const Filters = () => {
   const selectedColorFilters = useSelector(selectedColorFiltersSelector)
 
   const handleShapeFilter = shapeName => {
-    dispatch(item.updateShapeFilter(shapeName))
+    dispatch(shape.updateShapeFilter(shapeName))
   }
 
   const handleColorFilter = colorName => {
-    dispatch(item.updateColorFilter(colorName))
+    dispatch(shape.updateColorFilter(colorName))
   }
 
   return (

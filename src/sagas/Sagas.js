@@ -2,22 +2,22 @@ import {
   put, call, takeLatest, all,
 } from 'redux-saga/effects'
 
-import { ITEM } from '../actions/types'
-import { item } from '../actions'
+import { SHAPE } from '../actions/types'
+import { shape } from '../actions'
 
 function* handleGet() {
   try {
     const response = yield call(fetch, 'shapes.json')
     const data = yield response.json()
-    yield put(item.success({ data }))
+    yield put(shape.success({ data }))
   } catch (e) {
-    yield put(item.failure({ error: { ...e } }))
+    yield put(shape.failure({ error: { ...e } }))
   }
 }
 
 function* watchSagas() {
   yield all([
-    takeLatest(ITEM.GET, handleGet),
+    takeLatest(SHAPE.GET, handleGet),
   ])
 }
 

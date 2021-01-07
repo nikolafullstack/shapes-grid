@@ -1,6 +1,6 @@
 import { createActionTypes } from '../utils'
 
-export const ITEM = createActionTypes('ITEM', [
+export const SHAPE = createActionTypes('SHAPE', [
   'GET',
   'SUCCESS',
   'FAILURE',
@@ -8,4 +8,4 @@ export const ITEM = createActionTypes('ITEM', [
   'UPDATE_COLOR_FILTER',
 ])
 
-export default ITEM
+export default SHAPE

@@ -1,4 +1,5 @@
 import { createSelector } from 'reselect'
+import { filterShapes, getTitle } from '../utils'
 
 const shapesState = state => state.shape
 
@@ -14,7 +15,13 @@ const errorSelector = createSelector(
 
 const shapesSelector = createSelector(
   shapesState,
-  state => state.shapes,
+  state => {
+    return filterShapes(
+      state.shapes,
+      state.selectedShapeFilters,
+      state.selectedColorFilters,
+    )
+  },
 )
 
 const shapeFiltersListSelector = createSelector(
@@ -39,7 +46,14 @@ const selectedColorFiltersSelector = createSelector(
 
 const titleSelector = createSelector(
   shapesState,
-  state => state.title,
+  state => {
+    return getTitle(
+      state.selectedShapeFilters,
+      state.colorFiltersList,
+      state.shapeFiltersList.length,
+      state.colorFiltersList.length,
+    )
+  },
 )
 
 export {

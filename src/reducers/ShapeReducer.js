@@ -1,8 +1,6 @@
-import { ITEM } from '../actions/types'
-import { filterShapes, getTitle } from '../utils'
+import { SHAPE } from '../actions/types'
 
 const initialState = {
-  data: [],
   shapes: [],
   fetching: false,
   success: false,
@@ -11,7 +9,6 @@ const initialState = {
   colorFiltersList: [],
   selectedShapeFilters: [],
   selectedColorFilters: [],
-  title: 'All items',
 }
 
 export default function ShapeReducer(state = initialState, action) {
@@ -19,14 +16,14 @@ export default function ShapeReducer(state = initialState, action) {
   let clonedFilters = []
 
   switch (action.type) {
-    case ITEM.GET:
-    case ITEM.SUCCESS:
-    case ITEM.FAILURE:
+    case SHAPE.GET:
+    case SHAPE.SUCCESS:
+    case SHAPE.FAILURE:
       return {
         ...state,
         ...action.payload
       }
-    case ITEM.UPDATE_SHAPE_FILTER:
+    case SHAPE.UPDATE_SHAPE_FILTER:
       const shapeIndex = state.selectedShapeFilters.indexOf(action.payload.name);
       clonedFilters = [...state.selectedShapeFilters]
 
@@ -40,26 +37,11 @@ export default function ShapeReducer(state = initialState, action) {
         clonedFilters = [...state.shapeFiltersList]
       }
 
-      const shapesByShapeFilter = filterShapes(
-        state.data,
-        clonedFilters,
-        state.selectedColorFilters,
-      )
-
-      title = getTitle(
-        clonedFilters,
-        state.selectedColorFilters,
-        state.shapeFiltersList.length,
-        state.colorFiltersList.length,
-      )
-
       return {
         ...state,
-        shapes: shapesByShapeFilter,
         selectedShapeFilters: clonedFilters,
-        title,
       }
-    case ITEM.UPDATE_COLOR_FILTER:
+    case SHAPE.UPDATE_COLOR_FILTER:
       const colorIndex = state.selectedColorFilters.indexOf(action.payload.name)
       clonedFilters = [...state.selectedColorFilters]
 
@@ -73,24 +55,9 @@ export default function ShapeReducer(state = initialState, action) {
         clonedFilters = [...state.colorFiltersList]
       }
 
-      const shapesByColorFilter = filterShapes(
-        state.data,
-        state.selectedShapeFilters,
-        clonedFilters,
-      )
-
-      title = getTitle(
-        state.selectedShapeFilters,
-        clonedFilters,
-        state.shapeFiltersList.length,
-        state.colorFiltersList.length,
-      )
-
       return {
         ...state,
-        shapes: shapesByColorFilter,
         selectedColorFilters: clonedFilters,
-        title,
       }
     default:
       return state

@@ -4,7 +4,7 @@ import { Provider } from 'react-redux'
 import { createBrowserHistory } from 'history'
 import rootSaga from './sagas'
 import configureStore from './store'
-import { Container } from './containers/Container'
+import App from './App'
 import * as serviceWorker from './serviceWorker'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -17,7 +17,7 @@ store.runSaga(rootSaga)
 
 ReactDOM.render(
   <Provider store={store}>
-    <Container />
+    <App />
   </Provider>,
   document.getElementById('root'),
 )

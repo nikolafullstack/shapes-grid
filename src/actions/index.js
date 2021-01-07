@@ -1,11 +1,10 @@
 import { createAction } from '../utils'
-import { ITEM } from './types'
+import { SHAPE } from './types'
 import { uniqArray } from '../utils'
 
-export const item = {
-  request: () => createAction(ITEM.GET, { fetching: true, success: false, error: null }),
-  success: data => createAction(ITEM.SUCCESS, {
-    ...data,
+export const shape = {
+  request: () => createAction(SHAPE.GET, { fetching: true, success: false, error: null }),
+  success: data => createAction(SHAPE.SUCCESS, {
     shapes: [...data.data],
     fetching: false,
     success: true,
@@ -15,11 +14,11 @@ export const item = {
     selectedShapeFilters: uniqArray(data.data.map(s => s.shape)),
     selectedColorFilters: uniqArray(data.data.map(s => s.color)),
   }),
-  failure: error => createAction(ITEM.FAILURE, { ...error, fetching: false, success: false }),
-  updateShapeFilter: name => createAction(ITEM.UPDATE_SHAPE_FILTER, {
+  failure: error => createAction(SHAPE.FAILURE, { ...error, fetching: false, success: false }),
+  updateShapeFilter: name => createAction(SHAPE.UPDATE_SHAPE_FILTER, {
     name,
   }),
-  updateColorFilter: name => createAction(ITEM.UPDATE_COLOR_FILTER, {
+  updateColorFilter: name => createAction(SHAPE.UPDATE_COLOR_FILTER, {
     name,
   }),
 }
