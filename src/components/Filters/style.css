@@ -1,0 +1,9 @@
+.color-filter {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.color-filter.active {
+  border: 2px solid black;
+}
