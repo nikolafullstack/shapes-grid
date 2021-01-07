@@ -6,8 +6,16 @@
   &.active {
     border: 2px solid black;
   }
+
+  &:last-child {
+    margin-right: 0 !important;
+  }
 }
 
 .shape-filter {
   cursor: pointer;
+
+  &:last-child {
+    margin-right: 0 !important;
+  }
 }
