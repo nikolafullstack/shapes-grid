@@ -1,7 +1,9 @@
-import { combineReducers } from 'redux';
+import { combineReducers } from 'redux'
+import ShapeReducer from './ShapeReducer'
 
-const rootReducer = combineReducers({
-  state: (state = {}) => state
-});
+const rootReducer = asyncReducers => combineReducers({
+  shape: ShapeReducer,
+  ...asyncReducers,
+})
 
-export default rootReducer;
+export default rootReducer
